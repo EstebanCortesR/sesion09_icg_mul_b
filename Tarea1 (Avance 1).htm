@@ -1,0 +1,47 @@
+<canvas id='canvas' width=1800 height=1800>
+<script>
+
+function polygon(a, colorBorde, colorRelleno) {    
+
+  ctx.beginPath()
+  ctx.strokeStyle = colorBorde
+  ctx.fillStyle = colorRelleno
+  ctx.moveTo(a[0],a[1])
+  for (i=2; i < a.length; i+=2)
+    ctx.lineTo(a[i],a[i+1]);
+  ctx.closePath()
+  ctx.stroke()
+  ctx.fill()
+   
+}
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d');
+  ctx. lineWidth=10
+  
+function triangulo(cd,colorBorde,colorRelleno,grosor){
+   
+  ctx.strokeStyle = colorBorde;
+  ctx.fillStyle = colorRelleno;
+  ctx.lineWidtth = grosor;
+
+  ctx.beginPath();
+  ctx.moveTo(cd[0],cd[1]);
+  ctx.lineTo(cd[2],cd[3]);
+  ctx.lineTo(cd[4],cd[5]);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+  
+ }
+
+polygon([699,215,381,441,500,811,899,811,1024,444],'Black', 'white')
+polygon([631,320,433,465,506,703,754,703,831,467],'Black', 'white')
+
+
+
+
+
+
+
+
+</script> 
