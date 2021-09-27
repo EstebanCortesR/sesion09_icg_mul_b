@@ -1,0 +1,98 @@
+<canvas id='canvas' width=1800 height=1800>
+<script>
+
+function polygon(a, colorBorde, colorRelleno) {    
+
+  ctx.beginPath()
+  ctx.strokeStyle = colorBorde
+  ctx.fillStyle = colorRelleno
+  ctx.moveTo(a[0],a[1])
+  for (i=2; i < a.length; i+=2)
+    ctx.lineTo(a[i],a[i+1]);
+  ctx.closePath()
+  ctx.stroke()
+  ctx.fill()
+   
+}
+  
+  
+function triangulo(cd,colorBorde,colorRelleno,grosor){
+   
+  ctx.strokeStyle = colorBorde;
+  ctx.fillStyle = colorRelleno;
+  ctx.lineWidtth = grosor;
+
+  ctx.beginPath();
+  ctx.moveTo(cd[0],cd[1]);
+  ctx.lineTo(cd[2],cd[3]);
+  ctx.lineTo(cd[4],cd[5]);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+  
+ }
+ function recorte(arr){
+
+ctx.beginPath();
+
+  ctx.moveTo(arr[0],arr[1]);
+for(var i= 2; i < arr.length; i+=2)
+  ctx.lineTo(arr[i],arr[i+1]);
+  ctx.clip()
+  }
+  
+//Circulo Grande(Rojo)  
+  
+  var canvas = document.getElementById('canvas');
+		if (canvas && canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+			if (ctx) {
+					var X = canvas.width/2;
+					var Y = canvas.height/2;
+					var r = 75;
+					ctx.strokeStyle = "Black";
+					ctx.fillStyle = "rgba(237,28,36)";
+					ctx.lineWidth = 2;
+					ctx.arc(684,643,260,0,2*Math.PI);
+					ctx.fill();
+					ctx.stroke();
+                    
+                    var X = canvas.width/2;
+					var Y = canvas.height/2;
+					var r = 75;
+					ctx.strokeStyle = "Black";
+					ctx.fillStyle = "rgba(237,28,36)";
+					ctx.lineWidth = 2;
+					ctx.arc(784,660,220,0,2*Math.PI);
+					ctx.fill();
+					ctx.stroke();
+                    
+                   
+                   }
+		}
+  ctx. lineWidth=2
+
+//Pentágono Grande (Azul)
+polygon([899,415,581,641,700,1011,1099,1011,1224,644],'Black', 'rgba(0,162,232)')
+//Pentágono Pequeño (Blanco)
+polygon([831,520,633,665,706,903,954,903,1031,667],'Black', 'rgba(255,255,255))')
+//Rectángulo Irregular (Verde)
+polygon([356,640,343,723,1224,882,1231,798],'Black', 'rgba(181,230,29)')
+
+recorte ([831,520,633,665,706,903,954,903,1031,667])
+
+polygon([831,520,633,665,706,903,954,903,1031,667],'Black', 'White')
+polygon([356,640,343,723,1224,882,1231,798],'Black', 'rgba(181,230,29)')
+
+
+
+
+
+
+
+
+
+
+
+
+</script> 
