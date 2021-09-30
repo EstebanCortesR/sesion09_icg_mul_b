@@ -1,0 +1,67 @@
+<canvas id='canvas' width=1800 height=1800>
+<script>
+
+function polygon(a, colorBorde, colorRelleno) {    
+
+  ctx.beginPath()
+  ctx.strokeStyle = colorBorde
+  ctx.fillStyle = colorRelleno
+  ctx.moveTo(a[0],a[1])
+  for (i=2; i < a.length; i+=2)
+    ctx.lineTo(a[i],a[i+1]);
+  ctx.closePath()
+  ctx.stroke()
+  ctx.fill()
+   
+}
+function recorte(arr){
+
+ctx.beginPath();
+
+  ctx.moveTo(arr[0],arr[1]);
+for(var i= 2; i < arr.length; i+=2)
+  ctx.lineTo(arr[i],arr[i+1]);
+  ctx.clip()
+  }
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d');
+  //ctx. lineWidth=30
+  
+function triangulo(cd,colorBorde,colorRelleno,grosor){
+   
+  ctx.strokeStyle = colorBorde;
+  ctx.fillStyle = colorRelleno;
+  ctx.lineWidtth = grosor;
+
+  ctx.beginPath();
+  ctx.moveTo(cd[0],cd[1]);
+  ctx.lineTo(cd[2],cd[3]);
+  ctx.lineTo(cd[4],cd[5]);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+  
+ }
+//Triángulo Verde
+polygon([350,52,160,450,558,450],'rgba(34,177,76)','rgba(34,177,76)')
+ //Triángulo Café
+polygon([82,187,82,394,660,394],'rgba(136,0,21)','rgba(136,0,21)') 
+//Estrella de 4 puntas azul
+polygon([589,65,557,198,464,242,557,285,589,419,620,285,713,242,620,198], 'rgba(0,162,232)', 'rgba(0,162,232)')
+//rectangulo
+polygon([43,177,43,230,720,230,720,177], 'rgba(255,174,201)', 'rgba(255,174,201)')
+recorte([43,177,43,230,720,230,720,177])
+triangulo([82,187,82,394,660,394],'rgba(136,0,21)','rgba(136,0,21)') 
+polygon([350,52,160,450,558,450],'rgba(34,177,76)','rgba(34,177,76)')
+
+
+
+
+
+
+
+
+
+
+
+</script> 
